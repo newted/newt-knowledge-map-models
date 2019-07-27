@@ -1,0 +1,19 @@
+{
+  "name": "newt-knowledge-map-models",
+  "version": "1.0.0",
+  "description": "Model schemas to be shared between Newt and content manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newted/newt-knowledge-map-models.git"
+  },
+  "author": "Nehal Udyavar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newted/newt-knowledge-map-models/issues"
+  },
+  "homepage": "https://github.com/newted/newt-knowledge-map-models#readme"
+}
