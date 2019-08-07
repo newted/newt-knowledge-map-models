@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const topicSchema = new Schema(
-  {
-    concepts: [String],
-    entities: [String],
-    notablePeople: [String]
-  },
-  // Don't auto-create an _id field
-  { _id: false }
-);
+const topicSchema = new Schema({
+  name: String,
+  category: {
+    type: String,
+    enum: ["concept, entity, person"],
+    default: "entity"
+  }
+});
 
-module.exports = topicSchema;
+mongooose.model("topics", topicSchema);

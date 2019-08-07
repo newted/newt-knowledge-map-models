@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const topicSchema = require("./Topic");
 
 const contentSchema = new Schema({
   name: String,
@@ -27,8 +26,18 @@ const contentSchema = new Schema({
     ref: "KnowledgeSubject.modules"
   },
   level: Number,
-  primaryTopics: topicSchema,
-  secondaryTopics: topicSchema,
+  primaryTopics: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Topic"
+    }
+  ],
+  secondaryTopics: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Topic"
+    }
+  ],
   dateAdded: Date,
   lastUpdated: Date
 });
