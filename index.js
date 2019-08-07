@@ -5,5 +5,6 @@ module.exports = Object.assign(
   require("./models/ContentSeries"),
   require("./models/KnowledgeCategory"),
   require("./models/KnowledgeSubject"),
-  require("./models/Source")
+  require("./models/Source"),
+  require("./models/Topic")
 );
