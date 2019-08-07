@@ -5,7 +5,7 @@ const topicSchema = new Schema({
   name: String,
   category: {
     type: String,
-    enum: ["concept, entity, person"],
+    enum: ["concept", "entity", "person"],
     default: "entity"
   }
 });
