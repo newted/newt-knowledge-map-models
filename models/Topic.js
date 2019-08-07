@@ -10,4 +10,4 @@ const topicSchema = new Schema({
   }
 });
 
-mongooose.model("topics", topicSchema);
+mongoose.model("topics", topicSchema);
