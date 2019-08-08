@@ -42,6 +42,7 @@ const contentSchema = new Schema({
   // Name denormalized because very unlikely to change
   source: {
     name: String,
+    mediaId: String,
     sourceId: {
       type: Schema.Types.ObjectId,
       ref: "Source"
