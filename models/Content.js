@@ -1,43 +1,71 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+// Name + category denormalized because very unlikely to change
+const denormalizedTopicSchema = new Schema(
+  {
+    name: String,
+    category: {
+      type: String,
+      enum: ["concept", "entity", "person"]
+    },
+    topicId: {
+      type: Schema.Types.ObjectId,
+      ref: "Topic"
+    }
+  },
+  { _id: false }
+);
+
 const contentSchema = new Schema({
   name: String,
   url: String,
   partOfSeries: Boolean,
-  contentSeriesId: {
-    type: Schema.Types.ObjectId,
-    ref: "ContentSeries"
+  // Name + url field denormalized because very unlikely to change
+  contentSeries: {
+    name: String,
+    url: String,
+    contentSeriesId: {
+      type: Schema.Types.ObjectId,
+      ref: "ContentSeries"
+    }
   },
-  contentCreatorId: {
-    type: Schema.Types.ObjectId,
-    ref: "ContentCreator"
+  // Name + url denormalized because very unlikely to change
+  contentCreator: {
+    name: String,
+    url: String,
+    contentCreatorId: {
+      type: Schema.Types.ObjectId,
+      ref: "ContentCreator"
+    }
   },
-  sourceId: {
-    type: Schema.Types.ObjectId,
-    ref: "Source"
+  // Name denormalized because very unlikely to change
+  source: {
+    name: String,
+    sourceId: {
+      type: Schema.Types.ObjectId,
+      ref: "Source"
+    }
   },
-  knowledgeSubjectId: {
-    type: Schema.Types.ObjectId,
-    ref: "KnowledgeSubject"
+  // Name denormalized because very unlikely to change
+  knowledgeSubject: {
+    name: String,
+    knowledgeSubjectId: {
+      type: Schema.Types.ObjectId,
+      ref: "KnowledgeSubject"
+    }
   },
-  knowledgeModuleId: {
-    type: Schema.Types.ObjectId,
-    ref: "KnowledgeSubject.modules"
+  // Name denormalized because very unlikely to change
+  knowledgeModule: {
+    name: String,
+    knowledgeModuleId: {
+      type: Schema.Types.ObjectId,
+      ref: "KnowledgeSubject.modules"
+    }
   },
   level: Number,
-  primaryTopics: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Topic"
-    }
-  ],
-  secondaryTopics: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Topic"
-    }
-  ],
+  primaryTopics: [denormalizedTopicSchema],
+  secondaryTopics: [denormalizedTopicSchema],
   dateAdded: Date,
   lastUpdated: Date
 });
