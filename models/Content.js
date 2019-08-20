@@ -64,6 +64,10 @@ const contentSchema = new Schema({
       ref: "KnowledgeSubject.modules"
     }
   },
+  quizId: {
+    type: Schema.Types.ObjectId,
+    ref: "Quiz"
+  },
   level: Number,
   primaryTopics: [denormalizedTopicSchema],
   secondaryTopics: [denormalizedTopicSchema],
