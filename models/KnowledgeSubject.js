@@ -30,4 +30,4 @@ const knowledgeSubjectSchema = new Schema({
   lastUpdated: Date
 });
 
-mongoose.model("knowledgeSubjects", knowledgeSubjectSchema);
+mongoose.model("knowledge-subjects", knowledgeSubjectSchema);

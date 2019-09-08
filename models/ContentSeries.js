@@ -33,4 +33,4 @@ const contentSeriesSchema = new Schema({
   lastUpdated: Date
 });
 
-mongoose.model("contentSeries", contentSeriesSchema);
+mongoose.model("content-series", contentSeriesSchema);

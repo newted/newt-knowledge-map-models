@@ -11,4 +11,4 @@ const knowledgeCategorySchema = new Schema({
   ]
 });
 
-mongoose.model("knowledgeCategories", knowledgeCategorySchema);
+mongoose.model("knowledge-categories", knowledgeCategorySchema);

@@ -26,4 +26,4 @@ const contentCreatorSchema = new Schema({
   lastUpdated: Date
 });
 
-mongoose.model("contentCreators", contentCreatorSchema);
+mongoose.model("content-creators", contentCreatorSchema);
